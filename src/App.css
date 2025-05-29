@@ -1,38 +1,40 @@
+/* App.css */
+body {
+margin: 0;
+padding: 0;
+font-family: 'Segoe UI', sans-serif;
+background-color: #121212;
+color: white;
+}
+
 .App {
-  text-align: center;
+padding: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.above-navbar {
+margin-top: 70px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* === Contact Section Custom Styling === */
+.contact-section a {
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.contact-section a:hover {
+  text-decoration: underline;
 }
 
-.App-link {
-  color: #61dafb;
+.icon-custom {
+  color: #48A3C6;
+  
 }
+.contact-heading {
+/* display: inline-block; */
+border-bottom: 2px solid #48A3C6;
+padding-bottom: 50px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+}
+.custom-muted {
+color: #999999;
 }
