@@ -1,22 +1,15 @@
 import React from "react";
-import { Card, Container, Row, Col } from "react-bootstrap";
+import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Project One",
-    image: "/project1.jpg",
-    description: "A brief description of project one goes here.",
-  },
-  {
-    title: "Project Two",
-    image: "/project2.jpg",
-    description: "Another quick description of a second project.",
-  },
-  {
-    title: "Project Three",
-    image: "/project3.jpg",
-    description: "Details about project three, with tech stack, etc.",
+    title: "Spam Detection",
+    image: "/image.png",
+    description:
+      "A Streamlit app that classifies SMS messages as spam or not spam using TF-IDF and Naive Bayes.",
+    github: "https://github.com/khojaabbas/SpamDetection",
+    live: "https://share.streamlit.io/khojaabbas/SpamDetection/main/src/spam_app.py",
   },
 ];
 
@@ -59,6 +52,30 @@ const Portfolio = ({ theme }) => {
                   <Card.Body>
                     <Card.Title>{project.title}</Card.Title>
                     <Card.Text>{project.description}</Card.Text>
+                    {(project.github || project.live) && (
+                      <div className="d-flex flex-wrap gap-2 mt-3">
+                        {project.github && (
+                          <Button
+                            variant={isDark ? "outline-light" : "secondary"}
+                            href={project.github}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            GitHub
+                          </Button>
+                        )}
+                        {project.live && (
+                          <Button
+                            variant={isDark ? "outline-light" : "secondary"}
+                            href={project.live}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            Live App
+                          </Button>
+                        )}
+                      </div>
+                    )}
                   </Card.Body>
                 </Card>
               </motion.div>
