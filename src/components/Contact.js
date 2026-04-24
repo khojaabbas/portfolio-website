@@ -71,7 +71,7 @@ const Contact = () => {
                     }}
                   >
                     <a
-                      href="/cv.pdf"
+                      href="/Tanveer_Abbas(Resume).pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: "white", textDecoration: "none" }}
