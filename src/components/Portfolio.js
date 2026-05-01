@@ -11,6 +11,14 @@ const projects = [
     github: "https://github.com/khojaabbas/SpamDetection",
     live: "https://share.streamlit.io/khojaabbas/SpamDetection/main/src/spam_app.py",
   },
+  {
+    title: "RAG-Based Chatbot",
+    image: "/RAG-Chatbot.png",
+    description:
+      "An AI-powered chatbot using Retrieval-Augmented Generation (RAG) with vector database search to answer user queries based on custom documents.",
+    github: "https://github.com/khojaabbas/RAG_Based-Chatbot",
+    live: "https://ragbased-chatbot-ntiq3rsu8khpvchejqzcpb.streamlit.app/",
+  },
 ];
 
 const Portfolio = ({ theme }) => {
@@ -22,60 +30,84 @@ const Portfolio = ({ theme }) => {
       className={`py-5 ${isDark ? "bg-dark text-white" : "bg-light text-dark"}`}
     >
       <Container>
-        <p
-          className={`lead text-center custom-muted  ${
-            isDark ? "" : "text-muted"
-          }`}
-        >
+        <p className={`lead text-center ${isDark ? "" : "text-muted"}`}>
           View my work and projects that showcase my skills and creativity.
         </p>
+
         <h2 className="text-center mb-5 fw-bold">My Projects</h2>
-        <Row className="g-4">
+
+        {/* KEEP ORIGINAL GRID */}
+        <Row className="g-4 justify-content-center align-items-stretch">
           {projects.map((project, index) => (
-            <Col md={6} lg={4} key={index}>
+            <Col md={6} lg={4} key={index} className="d-flex">
               <motion.div
+                className="w-100"
                 whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: 50 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
+                initial={{ opacity: 0, y: 40 }}
+                transition={{ duration: 0.4, delay: index * 0.15 }}
               >
                 <Card
                   bg={isDark ? "secondary" : "light"}
                   text={isDark ? "light" : "dark"}
-                  className="h-100 shadow-lg border-0"
+                  className="h-100 shadow-lg border-0 d-flex flex-column"
                 >
+                  {/* IMAGE (balanced) */}
                   <Card.Img
-                    variant="top"
-                    src={project.image}
-                    style={{ height: "200px", objectFit: "cover" }}
-                    alt={project.title}
-                  />
-                  <Card.Body>
-                    <Card.Title>{project.title}</Card.Title>
-                    <Card.Text>{project.description}</Card.Text>
-                    {(project.github || project.live) && (
-                      <div className="d-flex flex-wrap gap-2 mt-3">
-                        {project.github && (
-                          <Button
-                            variant={isDark ? "outline-light" : "secondary"}
-                            href={project.github}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            GitHub
-                          </Button>
-                        )}
-                        {project.live && (
-                          <Button
-                            variant={isDark ? "outline-light" : "secondary"}
-                            href={project.live}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            Live App
-                          </Button>
-                        )}
-                      </div>
-                    )}
+  variant="top"
+  src={project.image}
+  alt={project.title}
+  style={{
+    height: "230px",
+    width: "100%",
+    objectFit: "contain",
+    objectPosition: "center",
+    backgroundColor: "#ffffff",
+    padding: "0",
+    borderBottom: "1px solid rgba(255,255,255,0.1)",
+  }}
+/>
+
+                  {/* BODY */}
+                  <Card.Body className="d-flex flex-column p-3">
+                    <Card.Title className="fw-bold mb-2">
+                      {project.title}
+                    </Card.Title>
+
+                    <Card.Text
+                      style={{
+                        flexGrow: 1,
+                        lineHeight: "1.6",
+                        fontSize: "0.95rem",
+                      }}
+                    >
+                      {project.description}
+                    </Card.Text>
+
+                    <div className="d-flex gap-2 mt-2">
+                      {project.github && (
+                        <Button
+                          size="sm"
+                          variant={isDark ? "outline-light" : "secondary"}
+                          href={project.github}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          GitHub
+                        </Button>
+                      )}
+
+                      {project.live && (
+                        <Button
+                          size="sm"
+                          variant={isDark ? "outline-light" : "secondary"}
+                          href={project.live}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Live Demo
+                        </Button>
+                      )}
+                    </div>
                   </Card.Body>
                 </Card>
               </motion.div>
@@ -88,143 +120,3 @@ const Portfolio = ({ theme }) => {
 };
 
 export default Portfolio;
-
-// when new projects are added, simply update the `projects` array with new objects containing the title, image path, and description for each project.
-// import React from "react";
-// import { Link } from "react-router-dom";
-
-// const Portfolio = () => {
-//   return (
-//     <main className="portfolio container ">
-//       <p
-//         className="pageDescription text-center custom-muted "
-//         style={{ opacity: 1, transform: "none" }}
-//       >
-//         View my work (Scroll down to see more...)
-//       </p>
-//       <h3
-//         className="pageTitle text-center"
-//         style={{ opacity: 1, transform: "none" }}
-//       >
-//         Portfolio
-//       </h3>
-//       <div className="row">
-//         {/* Project 1 */}
-//         <Link
-//           className="projectLink col-12 col-lg-6"
-//           to="/portfolio/real time sign language recognition and translation web app"
-//         >
-//           <div
-//             style={{ opacity: 1, transform: "translateY(0vw) translateZ(0px)" }}
-//           >
-//             <div
-//               className="projectCard d-flex align-items-center justify-content-center p-5"
-//               style={{ backgroundColor: "var(--hl2-color)" }}
-//             >
-//               <div className="textWrap col-6 d-flex flex-column justify-content-center align-items-center m-5">
-//                 <h3 className="projectTitle">
-//                   Real Time Sign Language Recognition and Translation Web app
-//                 </h3>
-//                 <span className="viewWork">
-//                   View Work <ArrowIcon />
-//                 </span>
-//               </div>
-//               <div className="imageContainer col-6 d-flex align-items-center justify-content-center">
-//                 <div style={imageWrapStyle}>
-//                   <img
-//                     src="portfolio/public/project1.jpg"
-//                     // Replace with the actual image path
-//                     className="fadeIn"
-//                     alt="App"
-//                     style={imageStyle}
-//                   />
-//                   <div className="spinner" style={spinnerStyle}></div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </Link>
-
-//         {/* Repeat the above block for each additional project with their respective details... */}
-//         {/* Example below: */}
-
-//         <Link
-//           className="projectLink col-12 col-lg-6"
-//           to="/portfolio/scene graphs to image generation"
-//         >
-//           <div
-//             style={{ opacity: 1, transform: "translateY(0vw) translateZ(0px)" }}
-//           >
-//             <div
-//               className="projectCard d-flex align-items-center justify-content-center p-5"
-//               style={{ backgroundColor: "var(--hl-color)" }}
-//             >
-//               <div className="textWrap col-6 d-flex flex-column justify-content-center align-items-center m-5">
-//                 <h3 className="projectTitle">
-//                   Scene Graphs to Image Generation
-//                 </h3>
-//                 <span className="viewWork">
-//                   View Work <ArrowIcon />
-//                 </span>
-//               </div>
-//               <div className="imageContainer col-6 d-flex align-items-center justify-content-center">
-//                 <div style={imageWrapStyle}>
-//                   <img
-//                     src="portfolio/public/project2.jpg"
-//                     // Replace with the actual image path
-//                     className="fadeIn"
-//                     alt="App"
-//                     style={imageStyle}
-//                   />
-//                   <div className="spinner" style={spinnerStyle}></div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </Link>
-
-//         {/* Continue for other projects like AI Scrabble Solver, MRI Classification, etc. */}
-//       </div>
-//     </main>
-//   );
-// };
-
-// const ArrowIcon = () => (
-//   <svg
-//     stroke="currentColor"
-//     fill="none"
-//     strokeWidth="2"
-//     viewBox="0 0 24 24"
-//     strokeLinecap="round"
-//     strokeLinejoin="round"
-//     height="1em"
-//     width="1em"
-//     xmlns="http://www.w3.org/2000/svg"
-//   >
-//     <line x1="7" y1="17" x2="17" y2="7" />
-//     <polyline points="7 7 17 7 17 17" />
-//   </svg>
-// );
-
-// const imageWrapStyle = {
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   width: "100%",
-//   height: "100%",
-// };
-
-// const imageStyle = {
-//   display: "block",
-//   width: "100%",
-//   height: "100%",
-//   objectFit: "cover",
-//   opacity: 1,
-// };
-
-// const spinnerStyle = {
-//   display: "none",
-//   fontSize: "24px",
-// };
-
-// export default Portfolio;
