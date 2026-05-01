@@ -11,14 +11,14 @@ const projects = [
     github: "https://github.com/khojaabbas/SpamDetection",
     live: "https://share.streamlit.io/khojaabbas/SpamDetection/main/src/spam_app.py",
   },
-  {
-    title: "RAG-Based Chatbot",
-    image: "/RAG-Chatbot.png",
-    description:
-      "An AI-powered chatbot using Retrieval-Augmented Generation (RAG) with vector database search to answer user queries based on custom documents.",
-    github: "https://github.com/khojaabbas/RAG_Based-Chatbot",
-    live: "https://ragbased-chatbot-ntiq3rsu8khpvchejqzcpb.streamlit.app/",
-  },
+{
+  title: "RAG-Based Chatbot",
+  image: "/RAG-chatbot.png",
+  description:
+    "An AI-powered chatbot using Retrieval-Augmented Generation (RAG) with vector database search to answer user queries based on custom documents.",
+  github: "https://github.com/khojaabbas/RAG_Based-Chatbot",
+  live: "https://ragbased-chatbot-ntiq3rsu8khpvchejqzcpb.streamlit.app/",
+},
 ];
 
 const Portfolio = ({ theme }) => {
